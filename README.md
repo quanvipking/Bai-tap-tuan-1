@@ -1,32 +1,61 @@
 1. Mong muốn và định hướng của bạn là gì sau khi học xong môn học?
-Sau khi học xong môn Lập trình di động, mình mong muốn có thể tự phát triển được một ứng dụng di động hoàn chỉnh với giao diện đẹp và chức năng cơ bản. Định hướng của mình là học thêm về React Native hoặc Flutter để có thể lập trình đa nền tảng (Android và iOS). Ngoài ra, mình cũng muốn tham gia các dự án thực tế để cải thiện kỹ năng làm việc nhóm và quản lý dự án phần mềm.
+Sau khi học xong môn này, mình mong muốn có thể tự tay làm được một app di động đơn giản, có giao diện dễ nhìn, và có thể chạy thử trên điện thoại thật. Mình định hướng sẽ học thêm về Flutter vì thấy nó hỗ trợ cả Android lẫn iOS, sau này dễ làm dự án freelance hoặc xin thực tập ở các công ty phần mềm. Ngoài ra, mình cũng muốn hiểu rõ cách một ứng dụng hoạt động từ backend tới frontend.
 
 2. Theo bạn, trong tương lai gần (10 năm) lập trình di động có phát triển không? Giải thích tại sao?
-Theo mình, trong 10 năm tới lập trình di động chắc chắn vẫn sẽ phát triển mạnh mẽ. Các lý do bao gồm:
+Theo mình là có, thậm chí còn phát triển mạnh hơn bây giờ. Lý do là vì ai cũng dùng điện thoại, từ học sinh, sinh viên tới người lớn tuổi. Mọi thứ giờ đều có app: mua đồ ăn, gọi xe, học online, quản lý tài chính... Công nghệ cũng đang thay đổi nhanh, ví dụ như AI hay AR đang được tích hợp vô app di động rất nhiều. Cho nên mình nghĩ lập trình di động vẫn là một hướng đi rất tiềm năng.
 
-Thiết bị di động ngày càng phổ biến và trở thành công cụ chính để truy cập Internet, học tập, giải trí và làm việc.
+3. Viết một ứng dụng có UI như sau đẩy lên github
+import 'package:flutter/material.dart';
 
-Nhu cầu về ứng dụng cá nhân hóa và tiện lợi ngày càng cao, đặc biệt trong lĩnh vực thương mại điện tử, giáo dục, sức khỏe và ngân hàng số.
+void main() {
+  runApp(MyApp());
+}
 
-Công nghệ mới như AI, AR/VR, IoT, và 5G thúc đẩy sự ra đời của các ứng dụng di động thông minh hơn và tương tác hơn.
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: UserProfileScreen(),
+    );
+  }
+}
 
-Các nền tảng lập trình di động như Flutter, React Native, Swift và Kotlin đang ngày càng hoàn thiện, giúp việc phát triển ứng dụng trở nên dễ dàng và tiết kiệm thời gian.
-
-3. Viết một ứng dụng có UI như sau đẩy lên GitHub
-Yêu cầu UI: Ứng dụng hiển thị thông tin người dùng (ảnh đại diện, họ tên, địa chỉ).
-
-Gợi ý công nghệ:
-
-Flutter (Gợi ý: dùng CircleAvatar, Text, Column, Card, Scaffold)
-
-React Native (Gợi ý: dùng Image, Text, View, StyleSheet)
-
-Hoặc đơn giản là Android Java/Kotlin
-
-📌 Sau khi hoàn thành, bạn:
-
-Tạo repository trên GitHub (ví dụ: UserCardApp)
-
-Commit toàn bộ mã nguồn
-
-Ghi README hướng dẫn cách chạy ứng dụng
+class UserProfileScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('User Profile'),
+        backgroundColor: Colors.blue,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage('assets/profile.jpg'), // Thay bằng đường dẫn ảnh
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Johan Smith',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'California, USA',
+              style: TextStyle(fontSize: 18, color: Colors.grey),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Thêm chức năng cần thiết
+              },
+              child: Text('Edit Profile'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
